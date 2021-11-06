@@ -16,7 +16,7 @@ public class LevelCreator : MonoBehaviour
 
     void Start()
     {
-        StartLevel();   
+        StartLevel();
     }
 
     void StartLevel()
