@@ -15,11 +15,54 @@ public class PlayerContoller : MonoBehaviour
     public float minZ = 0f;
     public float maxZ = 0f;
 
+    public GameObject playerObject;
+
     public float normalHeight = 0f;
-    
+
+    private float desiredAngle = 0f;
+    private Vector2 direction;
+
+    private void Start()
+    {
+        direction = new Vector2(0, 0);
+    }
+
     void Update()
     {
         transform.Translate(new Vector3(movementInput.x, 0, movementInput.y) * PlayerSpeed * Time.deltaTime);
+
+        direction = 0.95f * direction + 0.05f * movementInput;
+        
+        if (direction.magnitude > 1f)
+        {
+            direction = direction / direction.magnitude;
+        }
+            
+    
+            desiredAngle = (360f + 90f - Mathf.Rad2Deg * Mathf.Atan2(direction.y, direction.x)) % 360f;
+        
+        // -z = down | +z = up (movementInput.y)
+        // -x = left | +x = right (movementInput.x)
+        // 0 deg = up | 90deg = right | -90 deg = 270 deg = left
+
+
+        float currentAngle = (360f + playerObject.transform.eulerAngles.y) % 360f;
+        
+        float angleDelta = desiredAngle - currentAngle;
+
+        if (angleDelta > 180f)
+        {
+            angleDelta -= 360f;
+        }
+        else if (angleDelta < -180f)
+        {
+            angleDelta += 360f;
+        }
+
+        angleDelta = Mathf.Clamp(angleDelta, -1250 * Time.deltaTime, 1250 * Time.deltaTime);
+        playerObject.transform.Rotate(new Vector3(0, angleDelta, 0));
+
+
 
         if (this.transform.position.x < minX)
         {

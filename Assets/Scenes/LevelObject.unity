@@ -300,6 +300,7 @@ MonoBehaviour:
   maxX: 7
   minZ: -4.5
   maxZ: 4.5
+  playerObject: {fileID: 0}
   normalHeight: 0
 --- !u!54 &121040785
 Rigidbody:
@@ -1861,7 +1862,7 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
     m_Reference: {fileID: 0}
-  m_PlayerPrefab: {fileID: 62326644477414092, guid: 08023d2f118054e4884099a84af34264, type: 3}
+  m_PlayerPrefab: {fileID: 661962407827267372, guid: dd2f4848e4a61a347a6a145b209919df, type: 3}
   m_SplitScreen: 0
   m_MaintainAspectRatioInSplitScreen: 0
   m_FixedNumberOfSplitScreens: -1
@@ -1879,7 +1880,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2087112949}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.1900792, y: -7.4478016, z: 3.6821995}
+  m_LocalPosition: {x: -3.1900792, y: 0, z: 3.6821995}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
