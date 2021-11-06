@@ -12,19 +12,21 @@ public class UI : MonoBehaviour
 
     public PostIt postItReference;
     public GameObject contentContainer;
+    public RootObject rootObject;
 
     public void Start()
     {
         gameTime = 0;
-        gameSeconds = 30;
+        gameSeconds = 5*60;
 
-        for (int i = 0; i < 5; ++i)
-        {
-            PostIt obj = Instantiate(postItReference, contentContainer.transform);
-            obj.age = 10.0f;
-            obj.fruits = new List<string>() { "Tomaten", "Gurke", "Karotten" };
-        } 
-        
+        rootObject.OnTruckEvent += OnTruckEvent;
+    }
+
+    private void OnTruckEvent(object sender, RootObject.OnTruckEventArgs args)
+    {
+        PostIt obj = Instantiate(postItReference, contentContainer.transform);
+        obj.age = args.nextEvent + 2;
+        obj.fruits = new List<string>() { "Tomaten", "Gurke" };
     }
 
     public void Update()
