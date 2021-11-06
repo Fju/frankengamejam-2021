@@ -20,10 +20,10 @@ public class TimerText : MonoBehaviour
         // set text color to red if the seconds are less than 10
         if (minutes < 1 && seconds < 10)
         {
-            tmpObject.color = new Color(255, 0, 0);
+            tmpObject.color = new Color(1f, .25f, .25f);
         } else
         {
-            tmpObject.color = new Color(255, 255, 255);
+            tmpObject.color = new Color(1f, 1f, 1f);
         }
     }
 }
