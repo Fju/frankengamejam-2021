@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Tile 
+public class Tile : MonoBehaviour
 {
     public Vector3 position;
     public MapObjects TileObject;
@@ -12,5 +12,5 @@ public enum MapObjects
     PlantBox,
     SeedBox,
     ToolHarvest,
-    ToolWateringCan,
+    ToolWateringCan
 }

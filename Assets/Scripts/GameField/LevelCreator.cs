@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class LevelCreator : MonoBehaviour
 {
-    public Tile[] TileObjects;
-    public List<GameObject> gameObjects;
+    public List<GameObject> GameObjects;
+    public List<Vector3> Positions;
     public string Name;
 
     public GameObject StorageBox;
@@ -25,40 +25,18 @@ public class LevelCreator : MonoBehaviour
 
     void CreateTiles()
     {
-        foreach (var tileObject in TileObjects)
+        for (var i = 0; i < GameObjects.Count; i++)
         {
-            GameObject gameObject;
-          
-            switch (tileObject.TileObject)
-            {
-                case MapObjects.PlantBox:
-                    gameObject = PlantBox;
-                    break;
-                case MapObjects.SeedBox:
-                    gameObject = SeedBox;
-                    break;
-                case MapObjects.StorageBox:
-                    gameObject = StorageBox;
-                    break;
-                case MapObjects.ToolHarvest:
-                    gameObject = ToolHarvest;
-                    break;
-                case MapObjects.ToolWateringCan:
-                    gameObject = ToolWateringCan;
-                    break;
-                default:
-                    throw new System.Exception("Enum value not found");
-            }
+            var tile = GameObjects[i].GetComponent<Tile>();
+            tile.position = Positions[i];
 
-            var instance = GameObject.Instantiate(gameObject, tileObject.position, Quaternion.identity, this.transform);
-            
-            gameObjects.Add(instance);
+            var instance = GameObject.Instantiate(tile, tile.position, Quaternion.identity, this.transform);
         }
     }
 
     void UnloadTiles()
     {
-        foreach (var gameObject in gameObjects)
+        foreach (var gameObject in GameObjects)
         {
             GameObject.Destroy(gameObject);
         }
