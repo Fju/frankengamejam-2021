@@ -9,4 +9,10 @@ public class PlantBox : Tile
     {
 
     }
+
+    public void Highlight()
+    {
+        
+    }
+
 }
