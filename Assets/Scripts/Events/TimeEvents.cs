@@ -3,20 +3,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TimeEvent : MonoBehaviour
+public class TimeEvents : MonoBehaviour
 {
-    private int time;
+    private float time;
 
-    public event EventHandler<OnTimeChangedArgs> OnTimeChanged;
+    public void Update()
+    {
+        time += Time.deltaTime;
+    }
+
+    public static event EventHandler<OnTimeChangedArgs> OnTimeChanged;
 
     public class OnTimeChangedArgs : EventArgs
     {
-        public int Time;
+        public float Time;
+        public float DeltaTime;
     }
 
     public void ScoreChanged()
     {
-        OnTimeChanged?.Invoke(this, new OnTimeChangedArgs { Time = time });
+        OnTimeChanged?.Invoke(this, new OnTimeChangedArgs { Time = time, DeltaTime = Time.deltaTime });
     }
 
     /*

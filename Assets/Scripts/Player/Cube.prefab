@@ -129,10 +129,10 @@ MonoBehaviour:
   PlayerSpeed: 10
   TurnSpeed: 180
   movementInput: {x: 0, y: 0}
-  minX: -5
-  minY: 0
-  maxX: 5
-  maxY: 0
+  minX: -7
+  maxX: 7
+  minZ: -4.5
+  maxZ: 4.5
   normalHeight: 0.5
 --- !u!114 &62326644477414133
 MonoBehaviour:
