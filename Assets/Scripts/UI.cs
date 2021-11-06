@@ -10,10 +10,22 @@ public class UI : MonoBehaviour
     private float gameTime;
     private int gameSeconds;
 
+    public PostIt postItReference;
+    public GameObject contentContainer;
+
     public void Start()
     {
         gameTime = 0;
         gameSeconds = 15;
+
+        for (int i = 0; i < 3; ++i)
+        {
+            PostIt obj = Instantiate(postItReference, contentContainer.transform);
+            obj.setContent("hello");
+        }
+        
+ 
+        
     }
 
     public void Update()
