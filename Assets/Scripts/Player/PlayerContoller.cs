@@ -19,15 +19,6 @@ public class PlayerContoller : MonoBehaviour
     
     void Update()
     {
-        if (movementInput.x > movementInput.y)
-        {
-
-        }
-        else
-        {
-
-        }
-
         transform.Translate(new Vector3(movementInput.x, 0, movementInput.y) * PlayerSpeed * Time.deltaTime);
 
         if (this.transform.position.x < minX)
