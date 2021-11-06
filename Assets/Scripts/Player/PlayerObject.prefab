@@ -76,7 +76,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ee7d3ce966488d4c9c9ac4892cba705, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerSpeed: 1
+  PlayerSpeed: 3
   TurnSpeed: 180
   movementInput: {x: 0, y: 0}
   minX: -7
@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: c068c001405191046aeec19024e8eb8a, type: 3}
-  m_NotificationBehavior: 0
+  m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -108,7 +108,11 @@ MonoBehaviour:
   m_ControlsChangedEvent:
     m_PersistentCalls:
       m_Calls: []
-  m_ActionEvents: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8f4aeca3-2c23-4504-b848-6cea6804334a
+    m_ActionName: Player/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -170,7 +174,6 @@ PrefabInstance:
       value: Cube
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 62326644477414094, guid: 08023d2f118054e4884099a84af34264, type: 3}
     - {fileID: 62326644477414095, guid: 08023d2f118054e4884099a84af34264, type: 3}
     - {fileID: 62326644477414090, guid: 08023d2f118054e4884099a84af34264, type: 3}
     - {fileID: 62326644477414133, guid: 08023d2f118054e4884099a84af34264, type: 3}

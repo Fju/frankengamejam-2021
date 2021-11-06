@@ -8,8 +8,8 @@ public class RootObject : MonoBehaviour
     private float time = 0;
     private float randomTime = 0;
 
-    public float minTimeRandom = 20;
-    public float maxTimeRandom = 30;
+    public float minTimeRandom;
+    public float maxTimeRandom;
 
     void Start()
     {
