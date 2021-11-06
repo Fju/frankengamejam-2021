@@ -16,6 +16,7 @@ public class PlayerContoller : MonoBehaviour
     public float maxZ = 0f;
 
     public GameObject playerObject;
+    public LevelCreator levelCreator;
 
     public float normalHeight = 0f;
 
@@ -25,6 +26,7 @@ public class PlayerContoller : MonoBehaviour
     private void Start()
     {
         direction = new Vector2(0, 0);
+        levelCreator = GameObject.Find("/RootEvent/GameField").GetComponent<LevelCreator>();
     }
 
     void Update()
@@ -38,8 +40,7 @@ public class PlayerContoller : MonoBehaviour
             direction = direction / direction.magnitude;
         }
             
-    
-            desiredAngle = (360f + 90f - Mathf.Rad2Deg * Mathf.Atan2(direction.y, direction.x)) % 360f;
+        desiredAngle = (360f + 90f - Mathf.Rad2Deg * Mathf.Atan2(direction.y, direction.x)) % 360f;
         
         // -z = down | +z = up (movementInput.y)
         // -x = left | +x = right (movementInput.x)
@@ -90,6 +91,23 @@ public class PlayerContoller : MonoBehaviour
         {
             this.transform.position = new Vector3(transform.position.x, normalHeight, transform.position.z);
         }
+
+
+        float playerRotation = playerObject.transform.eulerAngles.y;
+        Vector2 hitPoint = new Vector2(transform.position.x, transform.position.z);
+        hitPoint += new Vector2(Mathf.Cos(playerRotation), Mathf.Sin(playerRotation));
+
+        for (int i = 0; i < levelCreator.GameObjects.Count; ++i)
+        {
+            GameObject activeGameObject = levelCreator.GameObjects[i];
+            Vector3 activePosition = levelCreator.Positions[i];
+
+            if (hitPoint.x > activePosition.x - 0.5f && hitPoint.x < activePosition.x + 0.5f && hitPoint.y > activePosition.z - 0.5f && hitPoint.y < activePosition.z + 0.5f)
+            {
+                Debug.Log(i);
+            }
+        }
+
     }
 
     public void OnMove(InputAction.CallbackContext ctx) => movementInput = ctx.ReadValue<Vector2>();

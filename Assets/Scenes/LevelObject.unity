@@ -301,6 +301,7 @@ MonoBehaviour:
   minZ: -4.5
   maxZ: 4.5
   playerObject: {fileID: 0}
+  levelCreator: {fileID: 0}
   normalHeight: 0
 --- !u!54 &121040785
 Rigidbody:
