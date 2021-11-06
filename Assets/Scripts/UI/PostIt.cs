@@ -4,18 +4,42 @@ using UnityEngine;
 
 public class PostIt : MonoBehaviour
 {
-    public float createdAt;
+    public OrderLine orderLineReference;
+    public GameObject verticalLayoutObject;
+    public ProgressBar progressBarObject;
+
+    public float age;
     public List<string> fruits;
 
     public void Start()
     {
-        createdAt = 0;
-        Debug.Log(string.Format("Created posit: {0}", createdAt));
+        // set height according to the count of items in the fruits List
+        int height = 44;
+        if (fruits.Count > 0)
+        {
+            height += 8 + 30 * fruits.Count;
+        }
+        this.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, height);
+
+        int i = 1;
+        foreach (string fruit in fruits)
+        {
+            OrderLine newOrderLine = Instantiate(orderLineReference, verticalLayoutObject.transform);
+            newOrderLine.quantity = i++;
+            newOrderLine.fruit = fruit;
+        }
+        progressBarObject.setProgress(1.0f);
     }
 
-    public void setContent(string test)
+    public void Update()
     {
-        Debug.Log(test);
-    }
+        age -= Time.deltaTime;
+        progressBarObject.setProgress(age / 10.0f);
 
+        if (age <= 0f)
+        {
+            
+            Destroy(gameObject);
+        }
+    }
 }
