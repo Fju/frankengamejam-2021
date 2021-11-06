@@ -19,6 +19,15 @@ public class PlayerContoller : MonoBehaviour
     
     void Update()
     {
+        if (movementInput.x > movementInput.y)
+        {
+
+        }
+        else
+        {
+
+        }
+
         transform.Translate(new Vector3(movementInput.x, 0, movementInput.y) * PlayerSpeed * Time.deltaTime);
 
         if (this.transform.position.x < minX)
@@ -37,6 +46,15 @@ public class PlayerContoller : MonoBehaviour
         else if (this.transform.position.z > maxZ)
         {
             this.transform.position = new Vector3(transform.position.x, normalHeight, maxZ);
+        }
+
+        if (this.transform.position.y > normalHeight)
+        {
+            this.transform.position = new Vector3(transform.position.x, normalHeight, transform.position.z);
+        }
+        if (this.transform.position.y < normalHeight)
+        {
+            this.transform.position = new Vector3(transform.position.x, normalHeight, transform.position.z);
         }
     }
 

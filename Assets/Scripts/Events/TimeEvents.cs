@@ -10,6 +10,7 @@ public class TimeEvents : MonoBehaviour
     public void Update()
     {
         time += Time.deltaTime;
+        OnTimeChanged?.Invoke(this, new OnTimeChangedArgs { Time = time, DeltaTime = Time.deltaTime });
     }
 
     public static event EventHandler<OnTimeChangedArgs> OnTimeChanged;
@@ -18,11 +19,6 @@ public class TimeEvents : MonoBehaviour
     {
         public float Time;
         public float DeltaTime;
-    }
-
-    public void ScoreChanged()
-    {
-        OnTimeChanged?.Invoke(this, new OnTimeChangedArgs { Time = time, DeltaTime = Time.deltaTime });
     }
 
     /*
