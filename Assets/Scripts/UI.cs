@@ -18,7 +18,6 @@ public class UI : MonoBehaviour
 
     public void Update()
     {
-        
         gameTime += Time.deltaTime;
         if (gameTime > 1.0f)
         {
