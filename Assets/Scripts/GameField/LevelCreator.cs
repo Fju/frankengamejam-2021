@@ -4,6 +4,7 @@ using UnityEngine;
 public class LevelCreator : MonoBehaviour
 {
     public List<GameObject> GameObjects;
+    public List<Tile> InstanceObjects;
     public List<Vector3> Positions;
     public string Name;
 
@@ -29,8 +30,7 @@ public class LevelCreator : MonoBehaviour
         {
             var tile = GameObjects[i].GetComponent<Tile>();
             tile.position = Positions[i];
-
-            var instance = GameObject.Instantiate(tile, tile.position, Quaternion.identity, this.transform);
+            InstanceObjects.Add(GameObject.Instantiate(tile, tile.position, Quaternion.identity, this.transform));
         }
     }
 

@@ -7,7 +7,9 @@ public class PlayerContoller : MonoBehaviour
 {
     public int PlayerSpeed = 1;
     public float TurnSpeed = 180f;
+
     public Vector2 movementInput;
+    public float rotationInput;
 
     public float minX = 0f;
     public float maxX = 0f;
@@ -20,6 +22,8 @@ public class PlayerContoller : MonoBehaviour
     void Update()
     {
         transform.Translate(new Vector3(movementInput.x, 0, movementInput.y) * PlayerSpeed * Time.deltaTime);
+        transform.Rotate(new Vector3(0, rotationInput * TurnSpeed, 0));
+
 
         if (this.transform.position.x < minX)
         {
@@ -50,4 +54,5 @@ public class PlayerContoller : MonoBehaviour
     }
 
     public void OnMove(InputAction.CallbackContext ctx) => movementInput = ctx.ReadValue<Vector2>();
+    public void OnRotation(InputAction.CallbackContext ctx) => rotationInput = ctx.ReadValue<float>();
 }
