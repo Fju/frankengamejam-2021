@@ -122,7 +122,7 @@ public class PlayerContoller : MonoBehaviour
         }
 
         angleDelta = Mathf.Clamp(angleDelta, -1250 * Time.deltaTime, 1250 * Time.deltaTime);
-        playerObject.transform.Rotate(new Vector3(0, 0, angleDelta));
+        playerObject.transform.Rotate(new Vector3(0, angleDelta, 0));
 
         if (this.transform.position.x < minX)
         {
