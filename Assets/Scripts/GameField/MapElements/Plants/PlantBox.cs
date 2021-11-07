@@ -4,10 +4,26 @@ using UnityEngine;
 
 public class PlantBox : Tile
 {
-    public Plant plant;
+    public bool HasSickle;
+    public GameObject plantElement;
 
-    public override void Interaction(PlayerContoller gameObject, Tile InPlayerHand)
+    public override void Interaction(PlayerContoller gameObject)
     {
-        throw new System.NotImplementedException();
+        if (gameObject.InHand == null && plantElement.activeSelf)           //Player has no object
+        {
+            if (HasSickle)                                                  //This has object
+            {
+                gameObject.InHand = this;
+            }
+            plantElement.SetActive(false);
+        }
+        else if (gameObject.InHand.TileObject == MapObjects.SeedBox)
+        {
+            if (!plantElement.activeSelf)                                   //Player has ToolWaterCan
+            {
+                plantElement.SetActive(true);
+                gameObject.InHand = null;
+            }
+        }
     }
 }

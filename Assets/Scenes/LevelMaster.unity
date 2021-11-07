@@ -2479,11 +2479,12 @@ MonoBehaviour:
   - {fileID: 7869960989423120591, guid: ac63878996426f041b2ca5cb1a23e0da, type: 3}
   - {fileID: 7869960989423120591, guid: ac63878996426f041b2ca5cb1a23e0da, type: 3}
   - {fileID: 7869960989423120591, guid: ac63878996426f041b2ca5cb1a23e0da, type: 3}
-  - {fileID: 2037990122487490096, guid: 3d9f0fbee7312dd4f9435cfdaf3cc840, type: 3}
+  - {fileID: 4428335780237879575, guid: 3d9f0fbee7312dd4f9435cfdaf3cc840, type: 3}
   - {fileID: 6217869427882946348, guid: fceb4060ff00a9a4fa2f9ceb976b0e88, type: 3}
   - {fileID: 4275669678240541748, guid: ec8a305fbc3e53248b1cc5688ea0bb66, type: 3}
   - {fileID: 4275669678240541748, guid: ec8a305fbc3e53248b1cc5688ea0bb66, type: 3}
   - {fileID: 4275669678240541748, guid: ec8a305fbc3e53248b1cc5688ea0bb66, type: 3}
+  - {fileID: 1758211606952280346, guid: 8e52d6121a741a541b072ee760931fea, type: 3}
   ObjectInstances: []
   Positions:
   - {x: -7, y: 0, z: 4.5}
@@ -2503,6 +2504,7 @@ MonoBehaviour:
   - {x: -7, y: 0, z: -1.5}
   - {x: -7, y: 0, z: -0.5}
   - {x: -7, y: 0, z: 0.5}
+  - {x: -5, y: 0, z: 0.5}
 --- !u!1001 &775175450
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5295,7 +5297,7 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
     m_Reference: {fileID: 0}
-  m_PlayerPrefab: {fileID: 661962407827267372, guid: dd2f4848e4a61a347a6a145b209919df, type: 3}
+  m_PlayerPrefab: {fileID: 1425656474873123228, guid: 6a14dc2506bf11f4b8c1b6bc6ccf7b8b, type: 3}
   m_SplitScreen: 0
   m_MaintainAspectRatioInSplitScreen: 0
   m_FixedNumberOfSplitScreens: -1

@@ -9,7 +9,7 @@ public class StorageBox : Tile
     {
 
     }
-    public override void Interaction(PlayerContoller gameObject, Tile InPlayerHand)
+    public override void Interaction(PlayerContoller gameObject)
     {
         throw new System.NotImplementedException();
     }

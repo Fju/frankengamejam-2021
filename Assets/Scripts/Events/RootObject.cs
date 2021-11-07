@@ -23,7 +23,7 @@ public class RootObject : MonoBehaviour
         if (time > randomTime)
         {
             randomTime = UnityEngine.Random.Range(minTimeRandom, maxTimeRandom);
-            OnTruckEvent?.Invoke(this, new OnTruckEventArgs { eventTime = time, nextEvent = randomTime });
+            RootObject.OnTruckEvent?.Invoke(this, new OnTruckEventArgs { eventTime = time, nextEvent = randomTime });
             time = 0;
         }
     }

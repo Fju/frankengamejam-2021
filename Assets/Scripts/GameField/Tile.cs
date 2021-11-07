@@ -5,7 +5,7 @@ public class Tile : MonoBehaviour
     public Vector3 position;
     public MapObjects TileObject;
 
-    public virtual void Interaction(PlayerContoller gameObject, Tile InPlayerHand)
+    public virtual void Interaction(PlayerContoller gameObject)
     {
         throw new System.NotImplementedException();
     }

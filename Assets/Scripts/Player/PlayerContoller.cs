@@ -21,6 +21,10 @@ public class PlayerContoller : MonoBehaviour
     public GameObject highlightLight;
     public GameObject highlightLightInstance;
 
+    public GameObject Sickle;
+    public GameObject WateringCan;
+    public GameObject Seed;
+
     public float normalHeight = 0f;
 
     private float desiredAngle = 0f;
@@ -28,18 +32,34 @@ public class PlayerContoller : MonoBehaviour
 
     private Tile interactable = null;
     private Tile m_inHand = null;
+
     private float TimeSinceLastInteraction = 0.5f;
 
     public Tile InHand
     {
         set
         {
-            Debug.Log(value);
             m_inHand = value;
+
+            Sickle.SetActive(false);
+            WateringCan.SetActive(false);
+            Seed.SetActive(false);
+
+            if (m_inHand.TileObject == MapObjects.ToolSickle)
+            {
+                Sickle.SetActive(true);
+            }
+            if (m_inHand.TileObject == MapObjects.ToolWateringCan)
+            {
+                WateringCan.SetActive(true);
+            }
+            if (m_inHand.TileObject == MapObjects.SeedBox)
+            {
+                Seed.SetActive(true);
+            }
         }
         get
         {
-            Debug.Log(m_inHand);
             return m_inHand;
         }
     }
@@ -54,7 +74,7 @@ public class PlayerContoller : MonoBehaviour
     {
         if (interactable != null)
         {
-            interactable.Interaction(this, InHand);
+            interactable.Interaction(this);
         }
     }
 
@@ -62,7 +82,7 @@ public class PlayerContoller : MonoBehaviour
     {
         //Triggered by UserInput System R or Left Trigger
         TimeSinceLastInteraction += Time.deltaTime;
-        if (interaction == 1 && TimeSinceLastInteraction > 0.5f)
+        if (interaction == 1 && TimeSinceLastInteraction > 0.2f)
         {
             TimeSinceLastInteraction = 0;
             Interaction();
@@ -76,7 +96,7 @@ public class PlayerContoller : MonoBehaviour
         {
             direction = direction / direction.magnitude;
         }
-            
+
         desiredAngle = (360f + 90f - Mathf.Rad2Deg * Mathf.Atan2(direction.y, direction.x)) % 360f;
         
         // -z = down | +z = up (movementInput.y)
@@ -147,6 +167,7 @@ public class PlayerContoller : MonoBehaviour
             }
         }
         
+        interactable = null;
         if (closestDistance <= 2f)
         {
             Tile tile = levelCreator.ObjectInstances[closestIndex];
