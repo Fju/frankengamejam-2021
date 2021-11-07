@@ -6,7 +6,7 @@ using UnityEngine;
 public class Truck_Mover : MonoBehaviour
 {
     [SerializeField] int Speed;
-    public bool StartTruck;
+    public int counter;
     public bool LeaveTruck;
 
     // Start is called before the first frame update
@@ -18,28 +18,25 @@ public class Truck_Mover : MonoBehaviour
 
     public void OnTruckEnterEvent(object sender, EventArgs args)
     {
-        StartTruck = true;
+        counter++;
     }
 
     public void OnTruckLeaveEvent(object sender, EventArgs args)
     {
+        counter--;
         LeaveTruck = true;
     }
 
     // Update is called once per frame
     public void Update()
     {
-        if (StartTruck && !LeaveTruck)
+        if (!LeaveTruck && counter > 0)
         {
             if (transform.position.x >= 10f)
             {
                 transform.position += new Vector3(-Speed * Time.deltaTime, 0, 0);
-            } else
-            {
-                StartTruck = false;
             }
-        }
-        if (LeaveTruck)
+        } else if (LeaveTruck)
         {
             if (transform.position.x <= 15f)
             {
