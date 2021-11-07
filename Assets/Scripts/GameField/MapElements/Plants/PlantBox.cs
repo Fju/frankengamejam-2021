@@ -9,13 +9,9 @@ public class PlantBox : Tile
 
     public override void Interaction(PlayerContoller gameObject)
     {
-        if (gameObject.InHand == null && plantElement.activeSelf)           //Player has no object
+        if (gameObject.InHand == null)           //Player has no object
         {
-            if (HasSickle)                                                  //This has object
-            {
-                gameObject.InHand = this;
-            }
-            plantElement.SetActive(false);
+            
         }
         else if (gameObject.InHand.TileObject == MapObjects.SeedBox)
         {
