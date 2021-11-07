@@ -25,6 +25,6 @@ public class Plant : MonoBehaviour
     public enum PlantType
     {
         Carrot,
-
+        Potato
     }
 }

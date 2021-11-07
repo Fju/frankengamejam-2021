@@ -1,12 +1,6 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:Assets/Scripts/Player/PlayerWrapper.prefab.meta
-guid: dd2f4848e4a61a347a6a145b209919df
+guid: 6a14dc2506bf11f4b8c1b6bc6ccf7b8b
 PrefabImporter:
-=======
-guid: 69719bbd03ffd4b488975655329b3460
-folderAsset: yes
-DefaultImporter:
->>>>>>> e7f6f0420058e75c6f42facd1bbd4c684aad85cd:Assets/Models/Fence.meta
   externalObjects: {}
   userData: 
   assetBundleName: 

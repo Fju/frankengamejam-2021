@@ -7,24 +7,23 @@ public class Sickle : Tile
     public bool HasSickle;
     public GameObject SickleObject;
 
-    public override void Interaction(PlayerContoller gameObject, Tile InPlayerHand)
+    public override void Interaction(PlayerContoller gameObject)
     {
-        if (InPlayerHand == null)   //Player has no object
+        if (gameObject.InHand == null && SickleObject.activeSelf)          //Player has no object
         {
-            if (HasSickle)             //This has object
+            if (HasSickle)                      //This has object
             {
                 gameObject.InHand = this;
             }
-
             SickleObject.SetActive(false);
         }
-        else
+        else if (gameObject.InHand.TileObject == MapObjects.ToolSickle)
         {
-            if (!SickleObject.activeSelf) //Player has ToolWaterCan
+            if (!SickleObject.activeSelf)       //Player has ToolWaterCan
             {
                 SickleObject.SetActive(true);
+                gameObject.InHand = null;
             }
-            InPlayerHand = null;
         }
     }
 }

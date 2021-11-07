@@ -7,14 +7,9 @@ public class Truck : Tile
     public bool hasWateringCan;
     public bool hasEUPalette;
 
-    public override void Interaction(PlayerContoller gameObject, Tile InPlayerHand)
+    public override void Interaction(PlayerContoller gameObject)
     {
-        if (InPlayerHand.TileObject == MapObjects.ToolSickle
-            || InPlayerHand.TileObject == MapObjects.ToolWateringCan
-            )
-        {
-
-        }
+       
 
     }
 }
