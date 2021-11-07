@@ -5,6 +5,9 @@ using UnityEngine.InputSystem;
 
 public class PlayerContoller : MonoBehaviour
 {
+
+    public static int playerId = 0;
+
     public int PlayerSpeed = 1;
     public float TurnSpeed = 180f;
     public Vector2 movementInput;
@@ -17,6 +20,7 @@ public class PlayerContoller : MonoBehaviour
     public float maxZ = 0f;
 
     public GameObject playerObject;
+    public List<Material> playerMaterials;
     public LevelCreator levelCreator;
     public GameObject highlightLight;
     public GameObject highlightLightInstance;
@@ -67,10 +71,13 @@ public class PlayerContoller : MonoBehaviour
         }
     }
 
-    private void Start()
+    public void Start()
     {
         direction = new Vector2(0, 0);
         levelCreator = GameObject.Find("/GameObjects/LevelCreator").GetComponent<LevelCreator>();
+
+        MeshRenderer renderer = playerObject.GetComponent<MeshRenderer>();
+        renderer.material = playerMaterials[playerId++];
     }
 
     private void Interaction()
@@ -125,7 +132,7 @@ public class PlayerContoller : MonoBehaviour
         }
 
         angleDelta = Mathf.Clamp(angleDelta, -1250 * Time.deltaTime, 1250 * Time.deltaTime);
-        playerObject.transform.Rotate(new Vector3(0, 0, angleDelta));
+        playerObject.transform.Rotate(new Vector3(0, angleDelta, 0));
 
         if (this.transform.position.x < minX)
         {

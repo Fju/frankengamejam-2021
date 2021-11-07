@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,30 +6,48 @@ using UnityEngine;
 public class Truck_Mover : MonoBehaviour
 {
     [SerializeField] int Speed;
-    bool StartTruck;
-    bool LeaveTruck;
+    public bool StartTruck;
+    public bool LeaveTruck;
 
     // Start is called before the first frame update
     public void Start()
     {
-        RootObject.OnTruckEvent += OnTruckEvent;
+        RootObject.OnTruckEnterEvent += OnTruckEnterEvent;
+        RootObject.OnTruckLeaveEvent += OnTruckLeaveEvent;
     }
 
-    public void OnTruckEvent(object sender, RootObject.OnTruckEventArgs args)
+    public void OnTruckEnterEvent(object sender, EventArgs args)
     {
         StartTruck = true;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnTruckLeaveEvent(object sender, EventArgs args)
     {
-        if (transform.position.x >= 4 && StartTruck)
+        LeaveTruck = true;
+    }
+
+    // Update is called once per frame
+    public void Update()
+    {
+        if (StartTruck && !LeaveTruck)
         {
-            transform.position += new Vector3(-Speed * Time.deltaTime, 0, 0);
+            if (transform.position.x >= 10f)
+            {
+                transform.position += new Vector3(-Speed * Time.deltaTime, 0, 0);
+            } else
+            {
+                StartTruck = false;
+            }
         }
-        if (transform.position.x <= 12 && LeaveTruck)
+        if (LeaveTruck)
         {
-            transform.position += new Vector3(-Speed * Time.deltaTime, 0, 0);
+            if (transform.position.x <= 15f)
+            {
+                transform.position += new Vector3(Speed * Time.deltaTime, 0, 0);
+            } else
+            {
+                LeaveTruck = false;
+            }
         }
     }
 }

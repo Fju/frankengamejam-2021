@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,14 +19,14 @@ public class UI : MonoBehaviour
         gameTime = 0;
         gameSeconds = 5*60;
 
-        RootObject.OnTruckEvent += OnTruckEvent;
+        RootObject.OnOrderCreatedEvent += OnOrderCreated;
     }
 
-    public void OnTruckEvent(object sender, RootObject.OnTruckEventArgs args)
+    public void OnOrderCreated(object sender, RootObject.OrderCreatedEventArgs args)
     {
-        PostIt obj = Instantiate(postItReference, contentContainer.transform);
-        obj.age = args.nextEvent + 2;
-        obj.fruits = new List<string>() { "Tomaten" };
+        PostIt postIt = Instantiate(postItReference, contentContainer.transform);
+        postIt.age = args.nextOrder + 5;
+        postIt.quantities = new List<int> { args.quantity };
     }
 
     public void Update()
