@@ -6,7 +6,7 @@ public class Truck_Mover : MonoBehaviour
 {
     [SerializeField] int Speed;
     bool StartTruck;
-
+    bool LeaveTruck;
 
     // Start is called before the first frame update
     public void Start()
@@ -24,7 +24,11 @@ public class Truck_Mover : MonoBehaviour
     {
         if (transform.position.x >= 4 && StartTruck)
         {
-            transform.position += new Vector3(Speed * Time.deltaTime, 0, 0);
+            transform.position += new Vector3(-Speed * Time.deltaTime, 0, 0);
+        }
+        if (transform.position.x <= 12 && LeaveTruck)
+        {
+            transform.position += new Vector3(-Speed * Time.deltaTime, 0, 0);
         }
     }
 }

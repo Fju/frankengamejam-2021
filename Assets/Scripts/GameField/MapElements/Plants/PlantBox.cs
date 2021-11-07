@@ -2,13 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StorageBox : Tile
+public class PlantBox : Tile
 {
-    public FruitStack fruitStack;
-    public void Interaction()
-    {
+    public Plant plant;
 
-    }
     public override void Interaction(PlayerContoller gameObject, Tile InPlayerHand)
     {
         throw new System.NotImplementedException();

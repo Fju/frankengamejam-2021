@@ -8,6 +8,7 @@ public class PlayerContoller : MonoBehaviour
     public int PlayerSpeed = 1;
     public float TurnSpeed = 180f;
     public Vector2 movementInput;
+    public float interaction;
 
     public float minX = 0f;
     public float maxX = 0f;
@@ -17,21 +18,51 @@ public class PlayerContoller : MonoBehaviour
 
     public GameObject playerObject;
     public LevelCreator levelCreator;
+    public GameObject highlightLight;
+    public GameObject highlightLightInstance;
 
     public float normalHeight = 0f;
 
     private float desiredAngle = 0f;
     private Vector2 direction;
 
+    private Tile interactable = null;
+    private Tile m_inHand = null;
+
+    public Tile InHand
+    {
+        set
+        {
+            m_inHand = value;
+        }
+        get
+        {
+            return m_inHand;
+        }
+    }
 
     private void Start()
     {
         direction = new Vector2(0, 0);
-        levelCreator = GameObject.Find("/GameObjects/GameField").GetComponent<LevelCreator>();
+        levelCreator = GameObject.Find("/GameObjects/LevelCreator").GetComponent<LevelCreator>();
+    }
+
+    private void Interaction()
+    {
+        if (interactable != null)
+        {
+            interactable.Interaction(this, InHand);
+        }
     }
 
     void Update()
     {
+        //Triggered by UserInput System R or Left Trigger
+        if (interaction == 1)
+        {
+            Interaction();
+        }
+        
         transform.Translate(new Vector3(movementInput.x, 0, movementInput.y) * PlayerSpeed * Time.deltaTime);
 
         direction = 0.95f * direction + 0.05f * movementInput;
@@ -62,7 +93,7 @@ public class PlayerContoller : MonoBehaviour
         }
 
         angleDelta = Mathf.Clamp(angleDelta, -1250 * Time.deltaTime, 1250 * Time.deltaTime);
-        playerObject.transform.Rotate(new Vector3(0, angleDelta, 0));
+        playerObject.transform.Rotate(new Vector3(0, 0, angleDelta));
 
         if (this.transform.position.x < minX)
         {
@@ -95,12 +126,12 @@ public class PlayerContoller : MonoBehaviour
         float playerRotation = 90f - playerObject.transform.eulerAngles.y;
         Vector3 hitPoint = new Vector3(transform.position.x, 0, transform.position.z);
         hitPoint += (new Vector3(Mathf.Cos(Mathf.Deg2Rad * playerRotation), 0, Mathf.Sin(Mathf.Deg2Rad * playerRotation))) * 0.5f;
-
         
-
         int closestIndex = 0;
         float closestDistance = 10f;
-        for (int i = 0; i < levelCreator.InstanceObjects.Count; ++i)
+        Vector3? lightPosition = null;
+
+        for (int i = 0; i < levelCreator.ObjectInstances.Count; ++i)
         {
             Vector3 activePosition = levelCreator.Positions[i];
             Vector3 distance = hitPoint - activePosition;
@@ -110,17 +141,38 @@ public class PlayerContoller : MonoBehaviour
                 closestIndex = i;
                 closestDistance = distance.magnitude;
             }
-            Tile tile = levelCreator.InstanceObjects[i];
-            tile.Highlight(false);
+            Tile tile = levelCreator.ObjectInstances[i];
+            lightPosition = tile.position;
+            interactable = tile;
         }
-
+        
         if (closestDistance <= 2f)
         {
-            Tile tile = levelCreator.InstanceObjects[closestIndex];
-            tile.Highlight(true);
+            Tile tile = levelCreator.ObjectInstances[closestIndex];
+            lightPosition = tile.position;
+            interactable = tile;
         }
 
+        if (lightPosition == null)
+        {
+            if (highlightLightInstance != null)
+            {
+                highlightLightInstance.SetActive(false);
+            }
+        }
+        else
+        {
+            if (highlightLightInstance == null)
+            {
+                highlightLightInstance = GameObject.Instantiate(highlightLight);
+            }
+
+            highlightLightInstance.SetActive(true);
+            highlightLightInstance.transform.position = new Vector3(lightPosition.Value.x, lightPosition.Value.y + 1, lightPosition.Value.z);
+        }
     }
 
     public void OnMove(InputAction.CallbackContext ctx) => movementInput = ctx.ReadValue<Vector2>();
+    
+    public void OnAction(InputAction.CallbackContext ctx) => interaction = ctx.ReadValue<float>();
 }
