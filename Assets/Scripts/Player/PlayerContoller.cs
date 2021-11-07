@@ -88,16 +88,21 @@ public class PlayerContoller : MonoBehaviour
             Interaction();
         }
         
-        transform.Translate(new Vector3(movementInput.x, 0, movementInput.y) * PlayerSpeed * Time.deltaTime);
+       
 
-        direction = 0.95f * direction + 0.05f * movementInput;
+        direction = 0.85f * direction + 0.15f * movementInput;
         
         if (direction.magnitude > 1f)
         {
             direction = direction / direction.magnitude;
         }
 
-        desiredAngle = (360f + 90f - Mathf.Rad2Deg * Mathf.Atan2(direction.y, direction.x)) % 360f;
+
+        transform.Translate(new Vector3(direction.x, 0, direction.y) * PlayerSpeed * Time.deltaTime);
+            
+        if (direction.magnitude > 0.1f)
+            desiredAngle = (360f + 90f - Mathf.Rad2Deg * Mathf.Atan2(direction.y, direction.x)) % 360f;
+
         
         // -z = down | +z = up (movementInput.y)
         // -x = left | +x = right (movementInput.x)
