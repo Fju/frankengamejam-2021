@@ -48,6 +48,7 @@ MonoBehaviour:
   position: {x: -1, y: 0, z: 2.5}
   TileObject: 1
   plant: {fileID: 0}
+  highlightObject: {fileID: 6073420183800081450, guid: 50e4f8ff42d0c1e48ac220176b5b06f5, type: 3}
 --- !u!65 &5352967634730991140
 BoxCollider:
   m_ObjectHideFlags: 0

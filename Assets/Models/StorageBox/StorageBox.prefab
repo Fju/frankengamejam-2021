@@ -58,8 +58,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9eed8f2e2c6f28458afa66591a163bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  position: {x: 0, y: 0, z: 0}
+  position: {x: -7, y: 0, z: 0.5}
   TileObject: 0
+  highlightObject: {fileID: 6073420183800081450, guid: 50e4f8ff42d0c1e48ac220176b5b06f5, type: 3}
+  highlightLight: {fileID: 0}
   fruitStack: {fileID: 0}
 --- !u!1 &7741738644226500658
 GameObject:

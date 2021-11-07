@@ -23,6 +23,7 @@ public class PlayerContoller : MonoBehaviour
     private float desiredAngle = 0f;
     private Vector2 direction;
 
+
     private void Start()
     {
         direction = new Vector2(0, 0);
@@ -61,9 +62,7 @@ public class PlayerContoller : MonoBehaviour
         }
 
         angleDelta = Mathf.Clamp(angleDelta, -1250 * Time.deltaTime, 1250 * Time.deltaTime);
-        playerObject.transform.Rotate(new Vector3(0, 0, angleDelta));
-
-
+        playerObject.transform.Rotate(new Vector3(0, angleDelta, 0));
 
         if (this.transform.position.x < minX)
         {
@@ -93,19 +92,32 @@ public class PlayerContoller : MonoBehaviour
         }
 
 
-        float playerRotation = playerObject.transform.eulerAngles.y;
-        Vector2 hitPoint = new Vector2(transform.position.x, transform.position.z);
-        hitPoint += new Vector2(Mathf.Cos(playerRotation), Mathf.Sin(playerRotation));
+        float playerRotation = 90f - playerObject.transform.eulerAngles.y;
+        Vector3 hitPoint = new Vector3(transform.position.x, 0, transform.position.z);
+        hitPoint += (new Vector3(Mathf.Cos(Mathf.Deg2Rad * playerRotation), 0, Mathf.Sin(Mathf.Deg2Rad * playerRotation))) * 0.5f;
 
-        for (int i = 0; i < levelCreator.GameObjects.Count; ++i)
+        
+
+        int closestIndex = 0;
+        float closestDistance = 10f;
+        for (int i = 0; i < levelCreator.InstanceObjects.Count; ++i)
         {
-            GameObject activeGameObject = levelCreator.GameObjects[i];
             Vector3 activePosition = levelCreator.Positions[i];
+            Vector3 distance = hitPoint - activePosition;
 
-            if (hitPoint.x > activePosition.x - 0.5f && hitPoint.x < activePosition.x + 0.5f && hitPoint.y > activePosition.z - 0.5f && hitPoint.y < activePosition.z + 0.5f)
+            if (distance.magnitude < closestDistance)
             {
-                Debug.Log(i);
+                closestIndex = i;
+                closestDistance = distance.magnitude;
             }
+            Tile tile = levelCreator.InstanceObjects[i];
+            tile.Highlight(false);
+        }
+
+        if (closestDistance <= 2f)
+        {
+            Tile tile = levelCreator.InstanceObjects[closestIndex];
+            tile.Highlight(true);
         }
 
     }

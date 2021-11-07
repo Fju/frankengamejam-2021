@@ -26,7 +26,7 @@ public class UI : MonoBehaviour
     {
         PostIt obj = Instantiate(postItReference, contentContainer.transform);
         obj.age = args.nextEvent + 2;
-        obj.fruits = new List<string>() { "Tomaten", "Gurke" };
+        obj.fruits = new List<string>() { "Tomaten" };
     }
 
     public void Update()

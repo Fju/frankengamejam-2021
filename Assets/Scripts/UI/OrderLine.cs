@@ -12,7 +12,7 @@ public class OrderLine : MonoBehaviour
 
     public void Start()
     {
-        quantityTextObject.SetText(string.Format("{0}x {1}", quantity, fruit));
+        quantityTextObject.SetText(string.Format("{0}x", quantity));
     }
 
 }

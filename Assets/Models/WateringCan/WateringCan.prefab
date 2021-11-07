@@ -60,6 +60,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   position: {x: -1, y: 0, z: -4.5}
   TileObject: 4
+  highlightObject: {fileID: 6073420183800081450, guid: 50e4f8ff42d0c1e48ac220176b5b06f5, type: 3}
+  highlightLight: {fileID: 0}
 --- !u!1 &6412662510425439523
 GameObject:
   m_ObjectHideFlags: 0
