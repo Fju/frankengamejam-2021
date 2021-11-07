@@ -63,7 +63,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.8, y: 0.8, z: 0.8}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.3, z: 0}
 --- !u!114 &3213657450302254609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,7 +154,7 @@ MonoBehaviour:
   levelCreator: {fileID: 0}
   highlightLight: {fileID: 9009617531583417193, guid: c0605f83cc803c14bb3e65df995d2bb0, type: 3}
   highlightLightInstance: {fileID: 0}
-  normalHeight: 0.4
+  normalHeight: 0.1
 --- !u!1001 &4837849378748916620
 PrefabInstance:
   m_ObjectHideFlags: 0

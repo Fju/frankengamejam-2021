@@ -19,7 +19,7 @@ public class WateringTool : Tile
         }
         else
         {
-            if (InPlayerHand.TileObject == MapObjects.ToolWateringCan)  //Player has ToolWaterCan
+            if (CanObject.activeSelf)  //Player has ToolWaterCan
             {
                 CanObject.SetActive(true); 
                 InPlayerHand = null;
