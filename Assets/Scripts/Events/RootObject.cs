@@ -26,6 +26,8 @@ public class RootObject : MonoBehaviour
 
     private List<Order> orders;
 
+    public int players = 0;
+
     public void Start()
     {
         //TimeEvents.OnTimeChanged += TimeUpdate;

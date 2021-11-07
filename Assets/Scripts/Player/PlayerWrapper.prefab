@@ -234,6 +234,10 @@ MonoBehaviour:
   minZ: -4.5
   maxZ: 4.5
   playerObject: {fileID: 1425656475998204767}
+  playerMaterials:
+  - {fileID: 2100000, guid: 4699fce5d37559747b6be1191e454475, type: 2}
+  - {fileID: 2100000, guid: 38dae0af1326c4645bc23234f8f527d8, type: 2}
+  - {fileID: 2100000, guid: e66e7ce80ed63224b9fab7e2fc53490f, type: 2}
   levelCreator: {fileID: 0}
   highlightLight: {fileID: 9009617531583417193, guid: c0605f83cc803c14bb3e65df995d2bb0, type: 3}
   highlightLightInstance: {fileID: 0}
