@@ -49,17 +49,20 @@ public class PlayerContoller : MonoBehaviour
             WateringCan.SetActive(false);
             Seed.SetActive(false);
 
-            if (m_inHand.TileObject == MapObjects.ToolSickle)
+            if (m_inHand != null)
             {
-                Sickle.SetActive(true);
-            }
-            if (m_inHand.TileObject == MapObjects.ToolWateringCan)
-            {
-                WateringCan.SetActive(true);
-            }
-            if (m_inHand.TileObject == MapObjects.SeedBox)
-            {
-                Seed.SetActive(true);
+                if (m_inHand.TileObject == MapObjects.ToolSickle)
+                {
+                    Sickle.SetActive(true);
+                }
+                if (m_inHand.TileObject == MapObjects.ToolWateringCan)
+                {
+                    WateringCan.SetActive(true);
+                }
+                if (m_inHand.TileObject == MapObjects.SeedBox)
+                {
+                    Seed.SetActive(true);
+                }
             }
         }
         get
