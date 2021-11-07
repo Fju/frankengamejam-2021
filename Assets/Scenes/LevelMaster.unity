@@ -2604,18 +2604,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameObjects:
-  - {fileID: 6845032184053958950, guid: 277cdb0105ca4b64fa466486f253d002, type: 3}
-  - {fileID: 6845032184053958950, guid: 277cdb0105ca4b64fa466486f253d002, type: 3}
-  - {fileID: 6845032184053958950, guid: 277cdb0105ca4b64fa466486f253d002, type: 3}
-  - {fileID: 6845032184053958950, guid: 277cdb0105ca4b64fa466486f253d002, type: 3}
-  - {fileID: 6845032184053958950, guid: 277cdb0105ca4b64fa466486f253d002, type: 3}
-  - {fileID: 6845032184053958950, guid: 277cdb0105ca4b64fa466486f253d002, type: 3}
-  - {fileID: 6845032184053958950, guid: 277cdb0105ca4b64fa466486f253d002, type: 3}
-  - {fileID: 6845032184053958950, guid: 277cdb0105ca4b64fa466486f253d002, type: 3}
-  - {fileID: 6845032184053958950, guid: 277cdb0105ca4b64fa466486f253d002, type: 3}
-  - {fileID: 6845032184053958950, guid: 277cdb0105ca4b64fa466486f253d002, type: 3}
-  - {fileID: 6845032184053958950, guid: 277cdb0105ca4b64fa466486f253d002, type: 3}
-  - {fileID: 6845032184053958950, guid: 277cdb0105ca4b64fa466486f253d002, type: 3}
+  - {fileID: 577801393368596586, guid: 261b279b43309e54ebe01c2b7398bf1a, type: 3}
+  - {fileID: 577801393368596586, guid: 261b279b43309e54ebe01c2b7398bf1a, type: 3}
+  - {fileID: 577801393368596586, guid: 261b279b43309e54ebe01c2b7398bf1a, type: 3}
+  - {fileID: 577801393368596586, guid: 261b279b43309e54ebe01c2b7398bf1a, type: 3}
+  - {fileID: 577801393368596586, guid: 261b279b43309e54ebe01c2b7398bf1a, type: 3}
+  - {fileID: 577801393368596586, guid: 261b279b43309e54ebe01c2b7398bf1a, type: 3}
+  - {fileID: 577801393368596586, guid: 261b279b43309e54ebe01c2b7398bf1a, type: 3}
+  - {fileID: 577801393368596586, guid: 261b279b43309e54ebe01c2b7398bf1a, type: 3}
+  - {fileID: 577801393368596586, guid: 261b279b43309e54ebe01c2b7398bf1a, type: 3}
+  - {fileID: 577801393368596586, guid: 261b279b43309e54ebe01c2b7398bf1a, type: 3}
+  - {fileID: 577801393368596586, guid: 261b279b43309e54ebe01c2b7398bf1a, type: 3}
+  - {fileID: 577801393368596586, guid: 261b279b43309e54ebe01c2b7398bf1a, type: 3}
   - {fileID: 4428335780237879575, guid: 3d9f0fbee7312dd4f9435cfdaf3cc840, type: 3}
   - {fileID: 6217869427882946348, guid: fceb4060ff00a9a4fa2f9ceb976b0e88, type: 3}
   - {fileID: 4275669678240541748, guid: ec8a305fbc3e53248b1cc5688ea0bb66, type: 3}
@@ -6789,7 +6789,7 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
     m_Reference: {fileID: 0}
-  m_PlayerPrefab: {fileID: 1425656474873123228, guid: 6a14dc2506bf11f4b8c1b6bc6ccf7b8b, type: 3}
+  m_PlayerPrefab: {fileID: 4801327919144188032, guid: 6a14dc2506bf11f4b8c1b6bc6ccf7b8b, type: 3}
   m_SplitScreen: 0
   m_MaintainAspectRatioInSplitScreen: 0
   m_FixedNumberOfSplitScreens: -1
