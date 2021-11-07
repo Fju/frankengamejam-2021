@@ -338,8 +338,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b13f3ada0781f241af14b05da0df08e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minTimeRandom: 15
-  maxTimeRandom: 25
+  minTimeRandom: 2
+  maxTimeRandom: 4
 --- !u!4 &86248756
 Transform:
   m_ObjectHideFlags: 0
@@ -813,7 +813,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84342ed462aafd441837b6ad2474b2f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 10
+  Speed: 15
+  StartTruck: 0
+  LeaveTruck: 0
 --- !u!4 &212529801 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2376855836314637902, guid: 8dc753df592ba05459a38273489f1704, type: 3}
