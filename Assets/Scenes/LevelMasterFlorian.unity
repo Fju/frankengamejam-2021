@@ -4482,7 +4482,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2376855836314637902, guid: 8dc753df592ba05459a38273489f1704, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2376855836314637902, guid: 8dc753df592ba05459a38273489f1704, type: 3}
       propertyPath: m_LocalScale.x
@@ -5120,8 +5120,8 @@ Transform:
   m_Children:
   - {fileID: 221767607}
   - {fileID: 1253164121}
-  - {fileID: 212529801}
   - {fileID: 2117114282}
+  - {fileID: 212529801}
   m_Father: {fileID: 86248756}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5297,7 +5297,7 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
     m_Reference: {fileID: 0}
-  m_PlayerPrefab: {fileID: 661962407827267372, guid: dd2f4848e4a61a347a6a145b209919df, type: 3}
+  m_PlayerPrefab: {fileID: 1425656474873123228, guid: 6a14dc2506bf11f4b8c1b6bc6ccf7b8b, type: 3}
   m_SplitScreen: 0
   m_MaintainAspectRatioInSplitScreen: 0
   m_FixedNumberOfSplitScreens: -1
@@ -5399,7 +5399,7 @@ Transform:
   - {fileID: 989240765}
   - {fileID: 1601299042}
   m_Father: {fileID: 1998847974}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2120924971 stripped
 Transform:
