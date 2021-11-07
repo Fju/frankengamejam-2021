@@ -28,6 +28,7 @@ public class PlayerContoller : MonoBehaviour
     public GameObject Sickle;
     public GameObject WateringCan;
     public GameObject Seed;
+    public GameObject Carrot;
 
     public float normalHeight = 0f;
 
@@ -48,6 +49,7 @@ public class PlayerContoller : MonoBehaviour
             Sickle.SetActive(false);
             WateringCan.SetActive(false);
             Seed.SetActive(false);
+            Carrot.SetActive(false);
 
             if (m_inHand != null)
             {
@@ -62,6 +64,10 @@ public class PlayerContoller : MonoBehaviour
                 if (m_inHand.TileObject == MapObjects.SeedBox)
                 {
                     Seed.SetActive(true);
+                }
+                if (m_inHand.TileObject == MapObjects.FruitCarrot)
+                {
+                    Carrot.SetActive(true);
                 }
             }
         }
@@ -98,8 +104,6 @@ public class PlayerContoller : MonoBehaviour
             Interaction();
         }
         
-       
-
         direction = 0.85f * direction + 0.15f * movementInput;
         
         if (direction.magnitude > 1f)
