@@ -27,7 +27,7 @@ public class PlayerContoller : MonoBehaviour
     private void Start()
     {
         direction = new Vector2(0, 0);
-        levelCreator = GameObject.Find("/RootEvent/GameField").GetComponent<LevelCreator>();
+        levelCreator = GameObject.Find("/GameObjects/GameField").GetComponent<LevelCreator>();
     }
 
     void Update()

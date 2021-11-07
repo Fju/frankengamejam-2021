@@ -28,7 +28,7 @@ public class RootObject : MonoBehaviour
         }
     }
     
-    public event EventHandler<OnTruckEventArgs> OnTruckEvent;
+    public static event EventHandler<OnTruckEventArgs> OnTruckEvent;
 
     public class OnTruckEventArgs : EventArgs
     {

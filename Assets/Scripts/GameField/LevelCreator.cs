@@ -6,14 +6,7 @@ public class LevelCreator : MonoBehaviour
     public List<GameObject> GameObjects;
     public List<Tile> InstanceObjects;
     public List<Vector3> Positions;
-    public string Name;
-
-    public GameObject StorageBox;
-    public GameObject SeedBox;
-    public GameObject PlantBox;
-    public GameObject ToolHarvest;
-    public GameObject ToolWateringCan;
-
+    
     void Start()
     {
         StartLevel();
