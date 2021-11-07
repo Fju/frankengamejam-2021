@@ -28,15 +28,18 @@ public class PlayerContoller : MonoBehaviour
 
     private Tile interactable = null;
     private Tile m_inHand = null;
+    private float TimeSinceLastInteraction = 0.5f;
 
     public Tile InHand
     {
         set
         {
+            Debug.Log(value);
             m_inHand = value;
         }
         get
         {
+            Debug.Log(m_inHand);
             return m_inHand;
         }
     }
@@ -58,8 +61,10 @@ public class PlayerContoller : MonoBehaviour
     void Update()
     {
         //Triggered by UserInput System R or Left Trigger
-        if (interaction == 1)
+        TimeSinceLastInteraction += Time.deltaTime;
+        if (interaction == 1 && TimeSinceLastInteraction > 0.5f)
         {
+            TimeSinceLastInteraction = 0;
             Interaction();
         }
         
@@ -77,8 +82,7 @@ public class PlayerContoller : MonoBehaviour
         // -z = down | +z = up (movementInput.y)
         // -x = left | +x = right (movementInput.x)
         // 0 deg = up | 90deg = right | -90 deg = 270 deg = left
-
-
+        
         float currentAngle = (360f + playerObject.transform.eulerAngles.y) % 360f;
         
         float angleDelta = desiredAngle - currentAngle;
@@ -141,9 +145,6 @@ public class PlayerContoller : MonoBehaviour
                 closestIndex = i;
                 closestDistance = distance.magnitude;
             }
-            Tile tile = levelCreator.ObjectInstances[i];
-            lightPosition = tile.position;
-            interactable = tile;
         }
         
         if (closestDistance <= 2f)
@@ -168,7 +169,7 @@ public class PlayerContoller : MonoBehaviour
             }
 
             highlightLightInstance.SetActive(true);
-            highlightLightInstance.transform.position = new Vector3(lightPosition.Value.x, lightPosition.Value.y + 1, lightPosition.Value.z);
+            highlightLightInstance.transform.position = new Vector3(lightPosition.Value.x, lightPosition.Value.y + 0.7f, lightPosition.Value.z);
         }
     }
 

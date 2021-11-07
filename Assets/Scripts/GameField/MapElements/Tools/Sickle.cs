@@ -15,15 +15,16 @@ public class Sickle : Tile
             {
                 gameObject.InHand = this;
             }
+
             SickleObject.SetActive(false);
         }
         else
         {
-            if (InPlayerHand.TileObject == MapObjects.ToolSickle)  //Player has ToolWaterCan
+            if (!SickleObject.activeSelf) //Player has ToolWaterCan
             {
                 SickleObject.SetActive(true);
-                InPlayerHand = null;
             }
+            InPlayerHand = null;
         }
     }
 }
