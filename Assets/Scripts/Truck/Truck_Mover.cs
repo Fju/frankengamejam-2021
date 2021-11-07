@@ -31,7 +31,7 @@ public class Truck_Mover : MonoBehaviour
     {
         if (StartTruck && !LeaveTruck)
         {
-            if (transform.position.x >= 4f)
+            if (transform.position.x >= 10f)
             {
                 transform.position += new Vector3(-Speed * Time.deltaTime, 0, 0);
             } else
@@ -41,7 +41,7 @@ public class Truck_Mover : MonoBehaviour
         }
         if (LeaveTruck)
         {
-            if (transform.position.x <= 10f)
+            if (transform.position.x <= 15f)
             {
                 transform.position += new Vector3(Speed * Time.deltaTime, 0, 0);
             } else

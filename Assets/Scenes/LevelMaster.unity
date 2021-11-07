@@ -814,6 +814,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 10
+  StartTruck: 0
+  LeaveTruck: 0
 --- !u!4 &212529801 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2376855836314637902, guid: 8dc753df592ba05459a38273489f1704, type: 3}
@@ -4494,7 +4496,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2376855836314637902, guid: 8dc753df592ba05459a38273489f1704, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.666667
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2376855836314637902, guid: 8dc753df592ba05459a38273489f1704, type: 3}
       propertyPath: m_LocalPosition.y
