@@ -11,6 +11,7 @@ OcclusionCullingSettings:
   m_SceneGUID: 00000000000000000000000000000000
   m_OcclusionCullingData: {fileID: 0}
 --- !u!104 &2
+RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 0
@@ -1962,7 +1963,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2376855836314637902, guid: 8dc753df592ba05459a38273489f1704, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.121
       objectReference: {fileID: 0}
     - target: {fileID: 2376855836314637902, guid: 8dc753df592ba05459a38273489f1704, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3626,6 +3627,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: -10
+  rootObject: {fileID: 0}
+  postItReference: {fileID: 0}
+  contentContainer: {fileID: 0}
 --- !u!4 &1425523223 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 62d36dd4e687f7a4a832890a0337ae54, type: 3}

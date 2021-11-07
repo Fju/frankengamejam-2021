@@ -22,7 +22,7 @@ public class UI : MonoBehaviour
         rootObject.OnTruckEvent += OnTruckEvent;
     }
 
-    private void OnTruckEvent(object sender, RootObject.OnTruckEventArgs args)
+    public void OnTruckEvent(object sender, RootObject.OnTruckEventArgs args)
     {
         PostIt obj = Instantiate(postItReference, contentContainer.transform);
         obj.age = args.nextEvent + 2;
